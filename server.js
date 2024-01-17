@@ -5,7 +5,7 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(cors({
-  origin: '*'
+  origin: '*'//para que todos puedan consumir la api
 }))
 // Array para almacenar las tareas
 let tasks = [];
