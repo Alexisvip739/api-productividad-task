@@ -1,11 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const serveless = require('serverless-http')
 
 const cors = require('cors');
 const app = express();
 
-app.use('/.netlify/functions/api', bodyParser.json());
+app.use(bodyParser.json());
 app.use(cors({
   origin: '*'//para que todos puedan consumir la api
 }))
@@ -83,8 +82,8 @@ app.delete("/api/:id/", (req, res) => {
   res.json({ message: 'Task deleted successfully', task: deletedTask });
 });
 
-export const handle = serveless(app)
 
 app.listen(5000, () => {
   console.log('Server started on port 5000');
 });
+
